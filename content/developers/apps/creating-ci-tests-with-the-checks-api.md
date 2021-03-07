@@ -568,14 +568,12 @@ else
         path: file_path,
         start_line: start_line,
         end_line: end_line,
-        start_column: start_column,
-        end_column: end_column,
         annotation_level: annotation_level,
         message: message
       }
       # Annotations only support start and end columns on the same line
       if start_line == end_line
-        annotation.merge({start_column: start_column, end_column: end_column})
+        annotation.update(start_column: start_column, end_column: end_column)
       end
 
       annotations.push(annotation)
